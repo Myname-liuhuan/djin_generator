@@ -1,0 +1,32 @@
+package ${package}.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+import ${package}.entity.${className}Entity;
+ 
+/**
+ * 
+ * @author ${author}
+ *   ${className}控制器
+ * @date ${datetime}
+ */
+@Controller
+@RequestMapping("/${pathName}")
+public class ${className}Controller extends BaseController<${className}Entity>{
+	
+	/**
+	 * 页面jsp
+	 */
+	@RequestMapping("/page")
+	public String page(){
+		return "${pathName}";
+	}
+
+    /**
+     * 页面html
+     */
+    @RequestMapping("/html")
+    public String html(){
+        return "redirect:/html/${pathName}.html";
+    }
+}

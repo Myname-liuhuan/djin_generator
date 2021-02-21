@@ -1,0 +1,57 @@
+package ${package}.entity;
+
+import java.io.Serializable;
+#foreach ($column in $columns)
+#if($column.attrType.equals("Date"))
+import java.util.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
+#end
+#end
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+/**
+ * 
+ * @author ${author}
+ *    ${className}实体类
+ * @date ${datetime}
+ */
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer", "handler" })
+public class ${className}Entity implements Serializable{
+
+	  private static final long serialVersionUID = 1L;
+	
+#foreach ($column in $columns)
+#if(!$column.attrType.equals("Date"))
+      //$column.comments
+	  private $column.attrType $column.attrname;
+#end
+#if($column.attrType.equals("Date"))
+      //$column.comments
+      @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss" ,timezone = "GMT+8")
+	  private $column.attrType $column.attrname;
+#end
+#end
+
+#foreach ($column in $columns)
+	  /**
+	   * 设置：${column.comments}
+	   */
+	  public void set${column.attrName}($column.attrType $column.attrname) {
+		  this.$column.attrname = $column.attrname;
+	  }
+	  /**
+	   * 获取：${column.comments}
+	   */
+	  public $column.attrType get${column.attrName}() {
+	   	  return $column.attrname;
+	  }
+#end
+
+	 
+	  @Override
+	  public String toString() {
+		  return  ReflectionToStringBuilder.toString(this);
+	  }
+
+}

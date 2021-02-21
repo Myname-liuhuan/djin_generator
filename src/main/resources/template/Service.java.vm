@@ -1,0 +1,14 @@
+package ${package}.service;
+
+import ${package}.entity.${className}Entity;
+
+/**
+ * 
+ * @author ${author}
+ *    ${className}业务层接口
+ * @date ${datetime}
+ */
+public interface ${className}Service extends BaseService<${className}Entity>{
+	
+	
+}

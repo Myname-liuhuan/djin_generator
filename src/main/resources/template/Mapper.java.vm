@@ -1,0 +1,14 @@
+package ${package}.mapper;
+import org.springframework.stereotype.Repository;
+import ${package}.entity.${className}Entity;
+
+/**
+ * 
+ * @author ${author}
+ *    ${className}Mapper层
+ * @date ${datetime}
+ */
+@Repository
+public interface ${className}Mapper extends BaseMapper<${className}Entity> {
+	
+}

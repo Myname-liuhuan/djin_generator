@@ -1,0 +1,18 @@
+package ${package}.service.impl;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import ${package}.entity.${className}Entity;
+import ${package}.service.${className}Service;
+
+/**
+ * 
+ * @author ${author}
+ *    ${className}业务层实现类
+ * @date ${datetime}
+ */
+@Service
+@Transactional
+public class ${className}ServiceImpl extends BaseServiceImpl<${className}Entity> implements ${className}Service {
+	
+}
